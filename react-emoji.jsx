@@ -75,5 +75,4 @@ var EmojiMenu = React.createClass({
   }
 });
 
-
 module.exports = EmojiBtn;
