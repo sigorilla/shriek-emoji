@@ -1,7 +1,7 @@
 {
   "name": "shriek-emoji",
   "main": "emoji.jsx",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "homepage": "https://github.com/sigorilla/shriek-emoji",
   "authors": [
     "Igor Stepanov <sigorilla@gmail.com>"
