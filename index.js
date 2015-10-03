@@ -36,8 +36,8 @@ var emojiValues = [
 module.exports = function (messages) {
   try {
     return messages.map(function (message) {
-      var mdMessage = message;
-      mdMessage.text = message.text
+      var emojiMessage = message;
+      emojiMessage.text = message.text
         .replace(/:(\w{3,10}):/gmi, function (string, firstVal) {
           if (emojiValues.indexOf(firstVal) >= 0) {
             return '<span class="emoji emoji-' + firstVal + '"></span>';
@@ -45,7 +45,7 @@ module.exports = function (messages) {
             return string;
           }
         });
-      return mdMessage;
+      return emojiMessage;
     });
   } catch (err) {
     console.log(err);
