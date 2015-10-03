@@ -1,0 +1,21 @@
+{
+  "name": "shriek-emoji",
+  "main": "emoji.jsx",
+  "version": "0.1.1",
+  "homepage": "https://github.com/sigorilla/shriek-emoji",
+  "authors": [
+    "Igor Stepanov <sigorilla@gmail.com>"
+  ],
+  "moduleType": [
+    "globals",
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
