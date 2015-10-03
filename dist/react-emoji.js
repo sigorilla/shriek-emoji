@@ -1,4 +1,5 @@
-var EmojiBtn = window.Emoji = React.createClass({
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+var EmojiBtn = window.Emoji = React.createClass({displayName: "Emoji",
   getInitialState: function () {
     return { showEmojiMenu : false };
   },
@@ -43,15 +44,15 @@ var EmojiBtn = window.Emoji = React.createClass({
     module.exports.emojiValues = emojiValues;
     var classes = this.state.showEmojiMenu ? 'emoji-btn active' : 'emoji-btn';
     return (
-      <div>
-        <a className={classes} onClick={this.toggleEmojiMenu}></a>
-        <EmojiMenu show={this.state.showEmojiMenu} items={emojiValues}/>
-      </div>
+      React.createElement("div", null, 
+        React.createElement("a", {className: classes, onClick: this.toggleEmojiMenu}), 
+        React.createElement(EmojiMenu, {show: this.state.showEmojiMenu, items: emojiValues})
+      )
     )
   }
 });
 
-var EmojiMenu = React.createClass({
+var EmojiMenu = React.createClass({displayName: "EmojiMenu",
   addEmoji: function(type) {
     var emoji = ' :' + type + ': ';
     var area = document.getElementsByName('text').item(0);
@@ -65,12 +66,14 @@ var EmojiMenu = React.createClass({
     var self = this;
     var classes = this.props.show ? 'emoji-menu active' : 'emoji-menu';
     return (
-      <div className={classes}>
-        { this.props.items.map(function(value){
+      React.createElement("div", {className: classes}, 
+         this.props.items.map(function(value){
           var classes = 'emoji emoji-' + value;
-          return <span className={classes} onClick={self.addEmoji.bind(self, value)}></span>;
-        }) }
-      </div>
+          return React.createElement("span", {className: classes, onClick: self.addEmoji.bind(self, value)});
+        }) 
+      )
     )
   }
 });
+
+},{}]},{},[1]);
