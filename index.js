@@ -33,9 +33,9 @@ var emojiValues = [
   'okey'
 ];
 
-module.exports = function (messages) {
+module.exports = function (messages, callback) {
   try {
-    return messages.map(function (message) {
+    callback(null, messages.map(function (message) {
       var emojiMessage = message;
       emojiMessage.text = message.text
         .replace(/:(\w{3,10}):/gmi, function (string, firstVal) {
@@ -46,9 +46,9 @@ module.exports = function (messages) {
           }
         });
       return emojiMessage;
-    });
+    }));
   } catch (err) {
-    console.log(err);
+    callback(err, null);
   }
 };
 
