@@ -1,6 +1,6 @@
 {
   "name": "shriek-emoji",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Emoji for another chat",
   "main": "index.js",
   "scripts": {
