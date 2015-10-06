@@ -1,6 +1,9 @@
 {
   "name": "shriek-emoji",
-  "main": "dist/react-emoji.js",
+  "main": [
+    "dist/react-emoji.js",
+    "dist/react-emoji.css"
+  ],
   "version": "0.2.3",
   "homepage": "https://github.com/sigorilla/shriek-emoji",
   "authors": [

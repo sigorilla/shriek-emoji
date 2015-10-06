@@ -46,7 +46,7 @@ var EmojiBtn = window.Emoji = React.createClass({displayName: "Emoji",
     return (
       React.createElement("div", null, 
         React.createElement("a", {className: classes, onClick: this.toggleEmojiMenu}), 
-        React.createElement(EmojiMenu, {show: this.state.showEmojiMenu, items: emojiValues})
+        React.createElement(EmojiMenu, {show: this.state.showEmojiMenu, items: emojiValues, toggle: this.toggleEmojiMenu})
       )
     )
   }
@@ -61,6 +61,7 @@ var EmojiMenu = React.createClass({displayName: "EmojiMenu",
       var end = area.selectionEnd;
       area.value = area.value.substring(0, start) + emoji + area.value.substring(end, area.value.length);
     }
+    this.props.toggle();
   },
   render: function () {
     var self = this;
