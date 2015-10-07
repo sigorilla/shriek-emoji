@@ -84,4 +84,8 @@ if (window.shriekMessagePlugins === undefined) {
   window.shriekMessagePlugins.push(EmojiBtn);
 }
 
+if (window.registerMessagePlugin === undefined) {
+  window.registerMessagePlugin(EmojiBtn);
+}
+
 },{}]},{},[1]);

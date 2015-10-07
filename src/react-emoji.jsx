@@ -82,3 +82,7 @@ if (window.shriekMessagePlugins === undefined) {
 } else {
   window.shriekMessagePlugins.push(EmojiBtn);
 }
+
+if (window.registerMessagePlugin === undefined) {
+  window.registerMessagePlugin(EmojiBtn);
+}
