@@ -1,4 +1,4 @@
-var EmojiBtn = window.Emoji = React.createClass({
+var EmojiBtn = React.createClass({
   getInitialState: function () {
     return { showEmojiMenu : false };
   },
@@ -61,6 +61,7 @@ var EmojiMenu = React.createClass({
       area.value = area.value.substring(0, start) + emoji + area.value.substring(end, area.value.length);
     }
     this.props.toggle();
+    area.focus();
   },
   render: function () {
     var self = this;
@@ -75,3 +76,9 @@ var EmojiMenu = React.createClass({
     )
   }
 });
+
+if (window.shriekMessagePlugins === undefined) {
+  window.shriekMessagePlugins = [EmojiBtn];
+} else {
+  window.shriekMessagePlugins.push(EmojiBtn);
+}

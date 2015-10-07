@@ -1,5 +1,5 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-var EmojiBtn = window.Emoji = React.createClass({displayName: "Emoji",
+var EmojiBtn = React.createClass({displayName: "EmojiBtn",
   getInitialState: function () {
     return { showEmojiMenu : false };
   },
@@ -62,6 +62,7 @@ var EmojiMenu = React.createClass({displayName: "EmojiMenu",
       area.value = area.value.substring(0, start) + emoji + area.value.substring(end, area.value.length);
     }
     this.props.toggle();
+    area.focus();
   },
   render: function () {
     var self = this;
@@ -76,5 +77,11 @@ var EmojiMenu = React.createClass({displayName: "EmojiMenu",
     )
   }
 });
+
+if (window.shriekMessagePlugins === undefined) {
+  window.shriekMessagePlugins = [EmojiBtn];
+} else {
+  window.shriekMessagePlugins.push(EmojiBtn);
+}
 
 },{}]},{},[1]);
