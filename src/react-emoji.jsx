@@ -64,13 +64,24 @@ var EmojiMenu = React.createClass({
     area.focus();
   },
   render: function () {
-    var self = this;
-    var classes = this.props.show ? 'emoji-menu active' : 'emoji-menu';
+    var _this = this;
+    var cx = require('classnames');
+    var outerKey = 0;
+
+    var classesEmojiMenu = cx({
+      'emoji-menu': true,
+      'active': this.props.show
+    });
+    var classesEmojiItems = cx({
+      'emoji': true,
+    });
+
     return (
-      <div className={classes}>
+      <div className={classesEmojiMenu}>
         { this.props.items.map(function(value){
-          var classes = 'emoji emoji-' + value;
-          return <span className={classes} onClick={self.addEmoji.bind(self, value)}></span>;
+          outerKey++;
+          return <span className={classesEmojiItems + ' emoji-' + value} o
+          nClick={_this.addEmoji.bind(_this, value)} key={outerKey}></span>;
         }) }
       </div>
     )
