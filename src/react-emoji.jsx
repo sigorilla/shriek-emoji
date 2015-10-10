@@ -80,8 +80,8 @@ var EmojiMenu = React.createClass({
       <div className={classesEmojiMenu}>
         { this.props.items.map(function(value){
           outerKey++;
-          return <span className={classesEmojiItems + ' emoji-' + value} o
-          nClick={_this.addEmoji.bind(_this, value)} key={outerKey}></span>;
+          return <span className={classesEmojiItems + ' emoji-' + value} 
+            onClick={_this.addEmoji.bind(_this, value)} key={outerKey}></span>;
         }) }
       </div>
     )
