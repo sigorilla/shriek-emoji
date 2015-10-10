@@ -9,12 +9,13 @@
   "author": "Igor Stepanov <sigorilla@gmail.com> (http://igorstepanov.me)",
   "license": "MIT",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/sigorilla/shriek-emoji.git"
+    "type": "git",
+    "url": "https://github.com/sigorilla/shriek-emoji.git"
   },
   "devDependencies": {
     "bower": "^1.5.2",
     "browserify": "^11.1.0",
+    "classnames": "^2.1.5",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.0.0",
     "gulp-bower": "0.0.10",
