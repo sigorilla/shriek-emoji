@@ -131,8 +131,8 @@ var EmojiMenu = React.createClass({displayName: "EmojiMenu",
       React.createElement("div", {className: classesEmojiMenu}, 
          this.props.items.map(function(value){
           outerKey++;
-          return React.createElement("span", {className: classesEmojiItems + ' emoji-' + value, o: true, 
-          nClick: _this.addEmoji.bind(_this, value), key: outerKey});
+          return React.createElement("span", {className: classesEmojiItems + ' emoji-' + value, 
+            onClick: _this.addEmoji.bind(_this, value), key: outerKey});
         }) 
       )
     )
