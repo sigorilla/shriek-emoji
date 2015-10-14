@@ -1,3 +1,8 @@
+.emoji-container
+  position: absolute
+  top: 0
+  right: 0
+
 .emoji
   display: inline-block
   width: 16px
@@ -83,11 +88,11 @@
   opacity: .5
   background-size: cover
 
-.emoji-btn:hover
-  opacity: .8
+  &:hover
+    opacity: .8
 
-.emoji-btn.active
-  opacity: 1
+  &.active
+    opacity: 1
 
 .emoji-menu
   position: absolute
@@ -95,21 +100,21 @@
   width: 208px
   height: 116px
   right: 10px
-  bottom: 50px
+  bottom: 10px
   background: white
   box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.5)
 
-.emoji-menu > .emoji
-  margin: 5px
-  cursor: pointer
+  &::after
+    content: ''
+    position: absolute
+    right: 6px
+    bottom: -20px
+    border: 10px solid transparent
+    border-top: 10px solid white
 
-.emoji-menu.active
-  display: block
+  > .emoji
+    margin: 5px
+    cursor: pointer
 
-.emoji-menu:after
-  content: ''
-  position: absolute
-  right: 6px
-  bottom: -20px
-  border: 10px solid transparent
-  border-top: 10px solid white
+  &.active
+    display: block
