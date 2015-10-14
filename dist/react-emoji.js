@@ -53,10 +53,23 @@ var EmojiBtn = React.createClass({displayName: "EmojiBtn",
   getInitialState: function () {
     return { showEmojiMenu : false };
   },
+
   toggleEmojiMenu: function () {
     var active = this.state.showEmojiMenu ? false : true;
+
     this.setState({ showEmojiMenu : active });
   },
+
+  closeMenu: function (e) {
+    if (!$(e.target).hasClass('emoji-btn')) {
+      this.setState({ showEmojiMenu : false });
+    }
+  },
+
+  componentDidMount: function () {
+    window.addEventListener('click', this.closeMenu);
+  },
+
   render: function () {
     var emojiValues = ['smile',
       'grin',
@@ -91,10 +104,13 @@ var EmojiBtn = React.createClass({displayName: "EmojiBtn",
       'victory',
       'okey'
     ];
+
     module.exports.emojiValues = emojiValues;
+
     var classes = this.state.showEmojiMenu ? 'emoji-btn active' : 'emoji-btn';
+
     return (
-      React.createElement("div", null, 
+      React.createElement("div", {className: "emoji-container"}, 
         React.createElement("a", {className: classes, onClick: this.toggleEmojiMenu}), 
         React.createElement(EmojiMenu, {show: this.state.showEmojiMenu, items: emojiValues, toggle: this.toggleEmojiMenu})
       )
@@ -106,11 +122,14 @@ var EmojiMenu = React.createClass({displayName: "EmojiMenu",
   addEmoji: function(type) {
     var emoji = ' :' + type + ': ';
     var area = document.getElementsByName('text').item(0);
+
     if ( (area.selectionStart) || (area.selectionStart == '0') ) {
       var start = area.selectionStart;
       var end = area.selectionEnd;
+
       area.value = area.value.substring(0, start) + emoji + area.value.substring(end, area.value.length);
     }
+
     this.props.toggle();
     area.focus();
   },
@@ -123,6 +142,7 @@ var EmojiMenu = React.createClass({displayName: "EmojiMenu",
       'emoji-menu': true,
       'active': this.props.show
     });
+
     var classesEmojiItems = cx({
       'emoji': true,
     });
@@ -131,6 +151,7 @@ var EmojiMenu = React.createClass({displayName: "EmojiMenu",
       React.createElement("div", {className: classesEmojiMenu}, 
          this.props.items.map(function(value){
           outerKey++;
+
           return React.createElement("span", {className: classesEmojiItems + ' emoji-' + value, 
             onClick: _this.addEmoji.bind(_this, value), key: outerKey});
         }) 
