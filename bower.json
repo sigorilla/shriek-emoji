@@ -4,7 +4,7 @@
     "dist/react-emoji.js",
     "dist/react-emoji.css"
   ],
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://github.com/sigorilla/shriek-emoji",
   "authors": [
     "Igor Stepanov <sigorilla@gmail.com>"
